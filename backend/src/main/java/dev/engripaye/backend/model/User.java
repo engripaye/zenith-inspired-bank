@@ -4,7 +4,9 @@ package dev.engripaye.backend.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Data
+import java.math.BigDecimal;
+
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -16,9 +18,12 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String fullname;
+    @Column(nullable = false, unique = true)
     private String email;
-    private String balance;
+    @Column(nullable = false)
+    private BigDecimal balance;
 
 
 }

@@ -5,6 +5,8 @@ import dev.engripaye.backend.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+
 @Service
 @AllArgsConstructor
 public class UserService {
@@ -12,7 +14,13 @@ public class UserService {
     private final UserRepository userRepository;
 
     public User register(String fullname, String email){
-        return userRepository.save(new User(null, fullname, email, "1,200,200"));
+
+        User user = new User();
+        user.setFullname(fullname);
+        user.setEmail(email);
+        user.setBalance(new BigDecimal("12000000.00"));
+
+        return userRepository.save(user);
     }
 
     public User findByEmail(String email){
