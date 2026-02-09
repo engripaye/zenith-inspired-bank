@@ -3,6 +3,8 @@ package dev.engripaye.backend.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -15,12 +17,13 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
+    @Column(nullable = false, unique = true)
     private String accountNumber;
 
-    private double balance;
+    @Column(nullable = false)
+    private BigDecimal balance;
 
-    @OneToOne
+    @OneToOne(optional = false)
     @JoinColumn(name = "user_id")
     private User user;
 
