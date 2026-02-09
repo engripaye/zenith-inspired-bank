@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Account | Zenith-Inspired Bank</title>
+    <style>
+        body{font-family:Arial,sans-serif;background:#f8fafc;margin:0;padding:0}
+        .container{max-width:600px;margin:80px auto;padding:20px;background:#fff;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.1)}
+        h1{text-align:center;color:#c4161c}
+        label{display:block;margin-top:16px;font-weight:600}
+        input{width:100%;padding:12px;margin-top:6px;border-radius:8px;border:1px solid #ccc}
+        button{margin-top:20px;padding:12px 20px;border:none;border-radius:8px;background:#c4161c;color:#fff;font-weight:600;width:100%;cursor:pointer}
+        button:hover{background:#a30f18}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Open Account / Login</h1>
+    <form action="/open-account" method="post">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <button type="submit">Open Account</button>
+    </form>
+</div>
+</body>
+</html>
