@@ -4,6 +4,7 @@ package dev.engripaye.backend.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
@@ -18,13 +19,20 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String description;
 
-    private double amount;
+    @Column(nullable = false)
+    private BigDecimal amount;
 
+    @Column(nullable = false)
     private LocalDateTime transactionDate;
 
-    @ManyToOne
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private TransactionType type;
+
+    @ManyToOne(optional = false)
     @JoinColumn(name = "account_id")
     private Account account;
 }
