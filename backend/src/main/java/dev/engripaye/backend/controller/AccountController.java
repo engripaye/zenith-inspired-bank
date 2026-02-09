@@ -36,7 +36,12 @@ public class AccountController {
         Account account = (Account) session.getAttribute("account");
         if (account == null) return "redirect:/open-account";
 
+        model.addAttribute("accountNumber", account.getAccountNumber());
+        model.addAttribute("balance", account.getBalance());
+        model.addAttribute("transactions",
+                transactionService.getTransactionHistory(account));
 
+        return "dashboard";
     }
 
 }
