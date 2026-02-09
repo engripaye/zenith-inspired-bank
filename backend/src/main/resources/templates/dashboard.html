@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Zenith-Inspired Bank</title>
+    <style>
+        body{margin:0;font-family:Arial,sans-serif;background:#f8fafc}
+        header{background:#c4161c;color:#fff;padding:20px;text-align:center;font-size:22px}
+        .container{max-width:1000px;margin:30px auto;padding:20px}
+        .card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.1);margin-bottom:20px}
+        .card h2{margin-top:0;color:#c4161c}
+        .card p{margin:6px 0;color:#64748b}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+        .logout{float:right;padding:8px 14px;background:#f87171;color:#fff;border:none;border-radius:6px;cursor:pointer}
+        .logout:hover{background:#dc2626}
+    </style>
+</head>
+<body>
+<header>
+    Zenith-Inspired Bank Dashboard
+    <form action="/logout" method="get" style="display:inline">
+        <button type="submit" class="logout">Logout</button>
+    </form>
+</header>
+<div class="container">
+    <h1>Welcome, <span th:text="${name}"></span></h1>
+    <p>Email: <span th:text="${email}"></span></p>
+
+
+    <div class="grid">
+        <div class="card">
+            <h2>Account Balance</h2>
+            <p>₦2,450,000</p>
+        </div>
+        <div class="card">
+            <h2>Recent Transactions</h2>
+            <p>01/02/2026 - Payment to ABC Ltd - ₦45,000</p>
+            <p>30/01/2026 - Salary Credit - ₦150,000</p>
+            <p>28/01/2026 - Transfer to XYZ - ₦20,000</p>
+        </div>
+        <div class="card">
+            <h2>Cards</h2>
+            <p>Visa Debit **** 1234</p>
+            <p>MasterCard Credit **** 5678</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
