@@ -14,4 +14,8 @@ public class UserService {
     public User register(String fullname, String email){
         return userRepository.save(new User(null, fullname, email, "1,200,200"));
     }
+
+    public User findByEmail(String email){
+        return userRepository.findByEmail(email).orElse(null);
+    }
 }
