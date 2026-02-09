@@ -8,10 +8,12 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
+
 public class User {
 
     private String fullname;
     private String email;
     private String balance;
+
 
 }
