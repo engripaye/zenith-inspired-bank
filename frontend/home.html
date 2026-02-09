@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zenith‑Inspired Bank | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body{margin:0;font-family:Inter,Arial;background:#f8fafc;color:#0f172a}
+        a{text-decoration:none;color:inherit}
+
+        /* Utility */
+        .container{max-width:1200px;margin:auto;padding:0 20px}
+        .btn{padding:12px 18px;border-radius:999px;border:1px solid #e5e7eb;font-weight:600;cursor:pointer}
+        .btn.primary{background:#c4161c;color:#fff;border-color:#c4161c}
+
+        /* Top Bar */
+        .topbar{background:#111827;color:#fff;font-size:13px}
+        .topbar .container{display:flex;justify-content:space-between;padding:8px 20px}
+
+        /* Header */
+        header{background:#fff;border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:10}
+        .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+        .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+        .logo{width:38px;height:38px;border-radius:8px;background:#c4161c}
+        nav ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-weight:500}
+        nav li{cursor:pointer}
+        nav li:hover{color:#c4161c}
+        .actions{display:flex;gap:12px}
+
+        /* Hero */
+        .hero{background:#fff}
+        .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;padding:80px 0;align-items:center}
+        h1{font-size:52px;line-height:1.05;margin:0}
+        .lead{font-size:18px;color:#64748b;margin-top:16px}
+        .cta{margin-top:26px;display:flex;gap:14px}
+        .mock{height:360px;border-radius:24px;background:linear-gradient(135deg,#111827,#374151);position:relative}
+        .balance{position:absolute;bottom:24px;right:24px;background:#fff;padding:18px;border-radius:14px}
+
+        /* Services */
+        .section{padding:80px 0}
+        .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:30px}
+        .card{background:#fff;padding:26px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+
+        /* Footer */
+        footer{background:#0b1220;color:#cbd5e1}
+        footer .grid{grid-template-columns:2fr 1fr 1fr 1fr}
+        footer p{margin:6px 0}
+
+        @media(max-width:900px){
+            .hero-grid{grid-template-columns:1fr}
+            .grid{grid-template-columns:1fr 1fr}
+            h1{font-size:40px}
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+    <div class="container">
+        <span>📍 Branch Locator | 📞 Contact Centre</span>
+        <span>USD ▴ 1500 | GBP ▴ 1850 | EUR ▴ 1650</span>
+    </div>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="container nav">
+        <div class="brand">
+            <div class="logo"></div>
+            Zenith‑Inspired Bank
+        </div>
+        <nav>
+            <ul>
+                <li>Personal</li>
+                <li>SME</li>
+                <li>Corporate</li>
+                <li>Digital Banking</li>
+                <li>About Us</li>
+            </ul>
+        </nav>
+        <div class="actions">
+            <a href="login.html" class="btn">Internet Banking</a>
+            <a href="#" class="btn primary">Open Account</a>
+        </div>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container hero-grid">
+        <div>
+            <h1>Banking that puts <span style="color:#c4161c">you</span> first</h1>
+            <p class="lead">Secure, innovative and trusted banking solutions for individuals, businesses and institutions across Nigeria.</p>
+            <div class="cta">
+                <a href="login.html" class="btn primary">Get Started</a>
+                <a href="#" class="btn">Explore Services</a>
+            </div>
+        </div>
+        <div class="mock">
+            <div class="balance">
+                <small>Available Balance</small>
+                <h2>₦2,450,000</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section class="section container">
+    <h2>Our Banking Solutions</h2>
+    <div class="grid">
+        <div class="card">Savings Accounts</div>
+        <div class="card">Current Accounts</div>
+        <div class="card">Loans & Credit</div>
+        <div class="card">Digital Channels</div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container section grid">
+        <div>
+            <strong>Zenith‑Inspired Bank</strong>
+            <p>Demo banking platform for learning and portfolio use.</p>
+        </div>
+        <div>
+            <p>Personal Banking</p>
+            <p>Cards</p>
+            <p>Loans</p>
+        </div>
+        <div>
+            <p>SME Banking</p>
+            <p>Corporate</p>
+            <p>Trade Finance</p>
+        </div>
+        <div>
+            <p>Privacy Policy</p>
+            <p>Terms & Conditions</p>
+        </div>
+    </div>
+    <div style="text-align:center;font-size:12px;padding:14px;background:#020617">© 2026 Zenith‑Inspired Bank. Demo project only.</div>
+</footer>
+
+</body>
+</html>
