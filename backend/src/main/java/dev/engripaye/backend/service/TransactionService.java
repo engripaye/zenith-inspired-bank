@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -47,5 +48,62 @@ public class TransactionService {
         if(account.getBalance().compareTo(amount) < 0){
             throw new IllegalStateException("Insufficient balance");
         }
+
+        account.setBalance(account.getBalance().subtract(amount));
+        accountRepository.save(account);
+
+        Transaction transaction = new Transaction(
+                null,
+                "Cash Withdrawal",
+                amount,
+                LocalDateTime.now(),
+                TransactionType.DEBIT,
+                account
+        );
+
+        transactionRepository.save(transaction);
     }
+
+    // TRANSFER
+
+    public void transfer(Account from, Account to, BigDecimal amount){
+
+        if(from.getBalance().compareTo(amount) < 0){
+            throw new IllegalStateException("Insufficient balance");
+        }
+
+
+        // Debit Sender
+        from.setBalance(from.getBalance().subtract(amount));
+        accountRepository.save(from);
+
+
+        transactionRepository.save(new Transaction(
+                null,
+                "Transfer to " + to.getAccountNumber(),
+                amount,
+                LocalDateTime.now(),
+                TransactionType.DEBIT,
+                from
+        ));
+
+        // credit receiver
+        to.setBalance(to.getBalance().add(amount));
+        accountRepository.save(to);
+
+        transactionRepository.save(new Transaction(
+                null,
+                "Transfer from " + from.getAccountNumber(),
+                amount,
+                LocalDateTime.now(),
+                TransactionType.CREDIT,
+                to
+        ));
+    }
+
+    // GET TRANSACTION HISTORY
+    public List<Transaction> getTransactionHistory(Account account){
+        return transactionRepository.findByAccountId(account.getId());
+    }
+
 }
