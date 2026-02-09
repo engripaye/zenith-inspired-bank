@@ -6,7 +6,6 @@ import dev.engripaye.backend.model.TransactionType;
 import dev.engripaye.backend.repository.AccountRepository;
 import dev.engripaye.backend.repository.TransactionRepository;
 import jakarta.transaction.Transactional;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
