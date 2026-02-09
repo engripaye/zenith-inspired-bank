@@ -24,6 +24,9 @@ public class AccountController {
         if(user == null) return "redirect:/open-account";
 
         Account account = accountService.createAccount(user);
-        session.setAttribute();
+        session.setAttribute("account", account);
+
+        return "redirect:/account/dashboard";
     }
+
 }
