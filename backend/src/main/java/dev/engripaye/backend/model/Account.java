@@ -1,24 +1,28 @@
 package dev.engripaye.backend.model;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@Data
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "accounts")
+public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String fullname;
-    private String email;
-    private String balance;
 
+    @Column(unique = true)
+    private String accountNumber;
+
+    private double balance;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
 }
