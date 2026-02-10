@@ -20,9 +20,9 @@ public class UserController {
         return "index";
     }
 
-    @GetMapping("/open-account")
+    @GetMapping("/login")
     public String openAccountPage(){
-        return "open-account";
+        return "login";
     }
 
     @PostMapping("/open-account")

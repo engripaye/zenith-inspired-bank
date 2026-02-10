@@ -9,23 +9,30 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-
-        httpSecurity
+        http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/",
+                        .requestMatchers(
+                                "/",
+                                "/login",
                                 "/open-account",
                                 "/css/**",
-                                "/js/**")
+                                "/js/**"
+                        ).permitAll()
+                        .anyRequest().authenticated()
+                )
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/account/dashboard", true)
                         .permitAll()
-                        .anyRequest().authenticated())
-                .formLogin(form -> form.disable())
+                )
                 .logout(logout -> logout
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/"));
+                        .logoutSuccessUrl("/")
+                );
 
-        return httpSecurity.build();
+        return http.build();
     }
 }
